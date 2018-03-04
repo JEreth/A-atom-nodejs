@@ -1,0 +1,9 @@
+*.swp
+
+pids
+logs
+results
+
+node_modules
+npm-debug.log
+output
