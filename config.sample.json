@@ -1,0 +1,22 @@
+{
+    "settings": {
+    },
+    "atoms": [
+        {
+            "id": "thermometer",
+            "input": {
+                "mode": "jsonfile",
+            },
+            "output": {
+              "mode": "console",
+            },
+            "augmentation": [
+              {
+                  "name": "additionalTimestamp",
+                  "generator": "currentTimestamp",
+                  "parameters": []
+              },
+            ]
+        }
+    ]
+}
