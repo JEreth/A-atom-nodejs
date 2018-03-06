@@ -1,18 +1,19 @@
 var fs = require('fs');
 var http = require("http");
+var Atom = require("./app/atom.js");
 
-var connectors = require('./connector')
+var atoms = [];
+var debug = false;
 
 // read config file
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 // settings
 if('settings' in config){
-  // nothing here yet
+  debug = config.settings.debug;
 }
 
 // parse atoms
-for (atom of config.atoms) {
-  connectors.jsonfile.init(atom);
-  connectors.jsonfile.get();
+for (atomconfig of config.atoms) {
+  atoms.push(new Atom(atomconfig, debug))
 }
