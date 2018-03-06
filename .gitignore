@@ -6,5 +6,6 @@ results
 
 node_modules
 npm-debug.log
-output
-input
+
+/output
+/input
