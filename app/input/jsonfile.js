@@ -2,7 +2,7 @@ var fs = require('fs');
 var readline = require('readline');
 
 function JsonFile(config) {
-  this.inputPath="./input/"
+  this.inputPath= (typeof config.inputPath !== "undefined") ? config.inputPath : "./input/"
   this.filename = config.id+".json";
 }
 
@@ -15,19 +15,26 @@ JsonFile.prototype.get = function() {
 }
 
 JsonFile.prototype.readLine = function(lineNumber) {
-  var lineReader = readline.createInterface({
-    input: fs.createReadStream(this.getFullFilename())
+  var inputObject = this;
+  return new Promise(function(resolve, reject) {
+    var lineReader = readline.createInterface({
+      input: fs.createReadStream(inputObject.getFullFilename())
+    });
+    var result = "";
+    var lineno = 1;
+    lineReader.on('line', function (line) {
+      if (lineno++ <= lineNumber) {
+        result = line;
+      } else {
+        lineReader.close();
+      }
+    }).on('close', function () {
+      resolve(result);
+    })
+    .on('error', function (err) {
+      reject(err);
+    })
   });
-  var result = "";
-  var lineno = 0;
-  lineReader.on('line', function (line) {
-    if (lineno++ <= lineNumber) {
-      console.log(lineno + "   " + line);
-    } else {
-      lineReader.close();
-    }
-  });
-  console.log(result);
 }
 
 module.exports = JsonFile;

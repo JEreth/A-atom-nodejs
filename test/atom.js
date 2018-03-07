@@ -15,8 +15,15 @@ var config = {
     "augmentation": [
       {
           "name": "additionalTimestamp",
-          "generator": "currentTimestamp",
-          "parameters": []
+          "type": "addField",
+          "parameters": ["additionalTimestamp", "currentTimestamp"]
+      }
+    ],
+    "abstraction": [
+      {
+          "name": "remove old timestamp",
+          "type": "removeField",
+          "parameters": ["timestamp"]
       }
     ]
 };
@@ -24,7 +31,9 @@ var config = {
 var myAtom = new Atom(config);
 
 describe('Atom', function() {
-    it('should save given config', function() {
-        assert.isTrue(config === myAtom.config);
-    });
+  describe('.init()', function() {
+      it('should save given config', function() {
+          assert.isTrue(config === myAtom.config);
+      });
+  });
 });
