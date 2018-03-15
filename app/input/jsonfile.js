@@ -29,6 +29,7 @@ JsonFile.prototype.readLine = function(lineNumber) {
         lineReader.close();
       }
     }).on('close', function () {
+      helper.logger.log(result);
       resolve(result);
     })
     .on('error', function (err) {

@@ -1,28 +1,25 @@
 var input = require('./input');
 var output = require('./output');
+var helper = require('./helper');
 var augmentation = require('./augmentation')
 var abstraction = require('./abstraction');
 
-
-
 // constructor
-function Atom(config, debug) {
-  this.debug = (typeof debug !== 'undefined') ?  debug : false;
+function Atom(config) {
   this.config = config;
-  this.log("Initialize Atom");
+  helper.logger.log("Initialize Atom");
 
   // input
   this.inputs = [];
   for (input_config of config.input) {
-    this.log("Initialize Input "+input_config.mode);
+    helper.logger.log("Initialize Input "+input_config.mode);
     this.inputs.push(new input[input_config.mode](this.config));
   }
-
 
   // output
   this.outputs = [];
   for (output_config of config.output) {
-    this.log("Initialize Output "+output_config.mode);
+    helper.logger.log("Initialize Output "+output_config.mode);
     this.inputs.push(new output[output_config.mode](this.output_config));
   }
 
@@ -38,12 +35,6 @@ function Atom(config, debug) {
     this.abstractions.push(new abstraction[abstraction_config.type](abstraction_config));
   }
 
-};
-
-Atom.prototype.log = function(msg) {
-  if (this.debug) {
-    console.log("[DEBUG "+this.config.id+"] "+msg);
-  }
 };
 
 // export the class

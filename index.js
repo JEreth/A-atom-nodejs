@@ -1,19 +1,13 @@
 var fs = require('fs');
-var http = require("http");
 var Atom = require("./app/atom.js");
-
-var atoms = [];
-var debug = false;
+var helper = require("./app/helper");
 
 // read config file
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-
-// settings
-if('settings' in config){
-  debug = config.settings.debug;
-}
+helper.logger.initLogger(config);
 
 // parse atoms
+var atoms = [];
 for (atomconfig of config.atoms) {
-  atoms.push(new Atom(atomconfig, debug))
+  atoms.push(new Atom(atomconfig))
 }

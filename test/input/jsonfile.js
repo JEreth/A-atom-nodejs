@@ -9,7 +9,7 @@ var testObject = new jsonFile({
   'filename': 'test.json'
 });
 
-describe('jsonfile', function() {
+describe('input/jsonfile', function() {
   describe('.init()', function() {
       it('should create a valid path', function() {
           assert.isTrue(pathToTestfile+"test.json" === testObject.getFullFilename());

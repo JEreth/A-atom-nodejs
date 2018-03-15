@@ -9,11 +9,15 @@
               {
                 "mode": "jsonfile",
                 "filename": "thermometer.json"
+              },
+              {
+                "mode": "http",
+                "pullIntervall": "2000"
               }
             ],
             "output": [
               {
-              "mode": "console"
+                "mode": "console"
               }
             ],
             "augmentation": [
