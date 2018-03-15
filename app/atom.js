@@ -12,12 +12,19 @@ function Atom(config, debug) {
   this.log("Initialize Atom");
 
   // input
-  this.log("Initialize Input "+this.config.input.mode);
-  this.input = new input[this.config.input.mode](this.config);
+  this.inputs = [];
+  for (input_config of config.input) {
+    this.log("Initialize Input "+input_config.mode);
+    this.inputs.push(new input[input_config.mode](this.config));
+  }
+
 
   // output
-  this.log("Initialize Output "+this.config.output.mode);
-  this.output = new output[this.config.output.mode](this.config);
+  this.outputs = [];
+  for (output_config of config.output) {
+    this.log("Initialize Output "+output_config.mode);
+    this.inputs.push(new output[output_config.mode](this.output_config));
+  }
 
   // augmentations
   this.augmentations = [];

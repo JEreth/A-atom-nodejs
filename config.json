@@ -5,12 +5,17 @@
     "atoms": [
         {
             "id": "thermometer",
-            "input": {
-                "mode": "jsonfile"
-            },
-            "output": {
+            "input": [
+              {
+                "mode": "jsonfile",
+                "filename": "thermometer.json"
+              }
+            ],
+            "output": [
+              {
               "mode": "console"
-            },
+              }
+            ],
             "augmentation": [
               {
                   "name": "add additional timestamp",

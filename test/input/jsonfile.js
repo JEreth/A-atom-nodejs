@@ -6,7 +6,7 @@ var pathToTestfile = "./test/input/assets/";
 
 var testObject = new jsonFile({
   'inputPath': pathToTestfile,
-  'id': 'test'
+  'filename': 'test.json'
 });
 
 describe('jsonfile', function() {

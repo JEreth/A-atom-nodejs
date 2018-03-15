@@ -3,7 +3,7 @@ var readline = require('readline');
 
 function JsonFile(config) {
   this.inputPath= (typeof config.inputPath !== "undefined") ? config.inputPath : "./input/"
-  this.filename = config.id+".json";
+  this.filename = config.filename;
 }
 
 JsonFile.prototype.getFullFilename = function() {

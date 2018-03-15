@@ -6,12 +6,17 @@ var Atom = require("../app/atom.js");
 // test config
 var config = {
     "id": "testatom",
-    "input": {
-        "mode": "jsonfile"
-    },
-    "output": {
+    "input": [
+      {
+        "mode": "jsonfile",
+        "filename": "test.json"
+      }
+    ],
+    "output": [
+      {
       "mode": "console"
-    },
+      }
+    ],
     "augmentation": [
       {
           "name": "additionalTimestamp",

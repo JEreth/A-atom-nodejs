@@ -1,6 +1,10 @@
 
 function Http(config) {
-  // todo
+  this.url = config.url;
+}
+
+Http.prototype.get = function() {
+  return "";
 }
 
 module.exports = Http;
