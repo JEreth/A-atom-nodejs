@@ -28,6 +28,7 @@ function Atom(config) {
   for (augmentation_config of config.augmentation) {
     this.augmentations.push(new augmentation[augmentation_config.type](augmentation_config));
   }
+  this.augmentations[1].run(this);
 
   // abstractions
   this.abstractions = [];
