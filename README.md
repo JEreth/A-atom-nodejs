@@ -13,6 +13,18 @@
 
 * Build with nodejs
 
+### Run the application
+
+**Run local**
+
+You can run the application easily with `node start` from the root directory (take care that a config.json file exists).
+
+**Run the application in a docker container**
+
+You can also simply run the application in a docker container with the image [julianereth/a-atom-nodejs](https://hub.docker.com/r/julianereth/a-atom-nodejs/). For this simply run
+
+`docker run -v /localpath/to/your-config.json:/usr/src/app/config.json -p 8000:8000 -d julianereth/a-atom-nodejs`
+
 
 #### Related work
 - [Analytical Atoms Specs](https://github.com/JEreth/A-atom-meta-specs): A specification of the underlying idea of analytical atoms (in work)
