@@ -1,7 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-var removeField = require('../../app/abstraction/removefield.js');
+var removeField = require('../../app/augmentation/removefield.js');
 
 var a = new removeField({
     "name": "remove old timestamp",
@@ -10,7 +10,7 @@ var a = new removeField({
 });
 var dataset = {"something": "is here", "timestamp": "will be removed"};
 
-describe('removeField', function() {
+describe('augmentation.removeField', function() {
   describe('.apply()', function() {
 
       a.apply(dataset);

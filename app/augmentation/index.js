@@ -1,2 +1,3 @@
 module.exports.addField = require("./addfield.js");
-module.exports.addFunction = require("./addfunction.js");
+module.exports.removeField = require("./removefield.js");
+module.exports.transformation = require("./transformation.js");

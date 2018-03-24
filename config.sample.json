@@ -8,16 +8,14 @@
             "input": [
               {
                 "mode": "jsonfile",
-                "filename": "thermometer.json"
-              },
-              {
-                "mode": "http",
-                "pullIntervall": "2000"
+                "filename": "thermometer.json",
+                "pullIntervall": "1000"
               }
             ],
             "output": [
               {
-                "mode": "console"
+                "mode": "console",
+                "pushIntervall": "2000"
               }
             ],
             "augmentation": [
@@ -25,13 +23,16 @@
                   "name": "add additional timestamp",
                   "type": "addField",
                   "parameters": ["additionalTimestamp", "currentTimestamp"]
-              }
-            ],
-            "abstraction": [
+              },
               {
                   "name": "remove old timestamp",
                   "type": "removeField",
                   "parameters": ["timestamp"]
+              },
+              {
+                  "name": "add 10 to the temperature",
+                  "type": "transformation",
+                  "parameters": ["increasedTemperature","increase","temperature",10]
               }
             ]
         }

@@ -23,13 +23,6 @@ var config = {
           "type": "addField",
           "parameters": ["additionalTimestamp", "currentTimestamp"]
       }
-    ],
-    "abstraction": [
-      {
-          "name": "remove old timestamp",
-          "type": "removeField",
-          "parameters": ["timestamp"]
-      }
     ]
 };
 

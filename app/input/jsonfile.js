@@ -1,9 +1,21 @@
 var fs = require('fs');
 var readline = require('readline');
+var helper = require('../helper');
 
 function JsonFile(config) {
   this.inputPath= (typeof config.inputPath !== "undefined") ? config.inputPath : "./input/"
   this.filename = config.filename;
+  if (typeof config.pullIntervall !== "undefined" && config.pullIntervall>0) {
+    this.pullIntervall = config.pullIntervall;
+  }
+  // init pull intervall
+  /*if (typeof config.pullIntervall !== "undefined" && config.pullIntervall>0) {
+       setInterval(function(){
+         //this.get();
+         console.log(getFullFilename());
+       }, config.pullIntervall);
+  }*/
+
 }
 
 JsonFile.prototype.getFullFilename = function() {
@@ -30,6 +42,7 @@ JsonFile.prototype.readLine = function(lineNumber) {
       }
     }).on('close', function () {
       helper.logger.log(result);
+      result = JSON.parse(result);
       resolve(result);
     })
     .on('error', function (err) {

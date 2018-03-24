@@ -10,7 +10,7 @@ var a = new addField({
 });
 var dataset = {"something": "is here"};
 
-describe('addfield', function() {
+describe('augmentation.addfield', function() {
   describe('.apply()', function() {
 
       a.apply(dataset);
