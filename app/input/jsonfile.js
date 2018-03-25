@@ -8,14 +8,6 @@ function JsonFile(config) {
   if (typeof config.pullIntervall !== "undefined" && config.pullIntervall>0) {
     this.pullIntervall = config.pullIntervall;
   }
-  // init pull intervall
-  /*if (typeof config.pullIntervall !== "undefined" && config.pullIntervall>0) {
-       setInterval(function(){
-         //this.get();
-         console.log(getFullFilename());
-       }, config.pullIntervall);
-  }*/
-
 }
 
 JsonFile.prototype.getFullFilename = function() {
