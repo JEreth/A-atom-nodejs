@@ -1,5 +1,5 @@
 // prints log information if debug is enabled
-let debug = false;
+var debug = false;
 
 module.exports = {
   initLogger: (config) => {
