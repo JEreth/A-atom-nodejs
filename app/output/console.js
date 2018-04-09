@@ -1,5 +1,5 @@
 
-function Console(config) {
+function Console(config, atom) {
   // todo
 }
 

@@ -9,5 +9,8 @@ helper.logger.initLogger(config);
 // parse atoms
 var atoms = [];
 for (atomconfig of config.atoms) {
-  atoms.push(new Atom(atomconfig))
+  atoms.push(new Atom(atomconfig));
 }
+
+// start the http server (global for different uses)
+helper.http.startServer();

@@ -16,6 +16,10 @@
               {
                 "mode": "console",
                 "pushIntervall": "2000"
+              },
+              {
+                "mode": "http",
+                "route": "thermo"
               }
             ],
             "augmentation": [

@@ -6,7 +6,13 @@ var augmentation = require('./augmentation');
 // constructor
 function Atom(config) {
   this.config = config;
+  this.lastRow = {};
   helper.logger.log("Initialize Atom");
+
+  // provide the output
+  this.get = function() {
+   return this.lastRow;
+  }
 
   // input
   this.inputs = [];
@@ -19,7 +25,7 @@ function Atom(config) {
   this.outputs = [];
   for (output_config of config.output) {
     helper.logger.log("Initialize Output "+output_config.mode);
-    this.outputs.push(new output[String(output_config.mode)](output_config));
+    this.outputs.push(new output[String(output_config.mode)](output_config, this));
   }
 
   // augmentations
@@ -38,12 +44,12 @@ function Atom(config) {
              for (a of _this.augmentations) {
                a.apply(res);
              }
+             _this.lastRow = res;
              helper.logger.log(JSON.stringify(res)); // augmented result
            });
          }, i.pullIntervall);
     }
   }
-
 };
 
 // export the class
