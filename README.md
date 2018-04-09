@@ -23,7 +23,7 @@ You can run the application easily with `node start` from the root directory (ta
 
 You can also simply run the application in a docker container with the image [julianereth/a-atom-nodejs](https://hub.docker.com/r/julianereth/a-atom-nodejs/). For this simply run
 
-`docker run -v /localpath/to/your-config.json:/usr/src/app/config.json -p 8000:8000 -d julianereth/a-atom-nodejs`
+`docker run -v /localpath/to/your-config.json:/usr/src/app/config.json -p 8001:8001 -d julianereth/a-atom-nodejs`
 
 
 #### Related work
